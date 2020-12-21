@@ -1,9 +1,13 @@
 import React from 'react';
+import ProductsContextProvider from './contexts/ProductContextProvider';
+import Routes from './Routes';
 
 const App = () => {
   return (
     <div>
-      <h1>hello world</h1>
+      <ProductsContextProvider>
+        <Routes />
+      </ProductsContextProvider>
     </div>
   );
 };
