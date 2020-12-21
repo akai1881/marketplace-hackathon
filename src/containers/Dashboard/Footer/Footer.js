@@ -36,7 +36,7 @@ const Footer = () => {
                         <div className="footer-right-content">
                             <div className="footer-right-email">
                                 <p>E-MAIL:</p>
-                                <a href="jolybellstore@gmail.com">jolybellstore@gmail.com</a>
+                                <a href="">jolybellstore@gmail.com</a>
                             </div>
                             <div className="footer-right-working-hours">
                                 <p>ВРЕМЯ РАБОТЫ СЛУЖБЫ ПОДДЕРЖКИ:</p>
