@@ -1,33 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { productsContext } from '../../contexts/ProductContextProvider';
+import { Grid, Paper } from '@material-ui/core';
 
-const ProductDetails = () => {
+const ProductDetails = (props) => {
 
+    const { getProductDetails, productsDetail } = useContext(productsContext)
 
+    useEffect(() => {
+        getProductDetails(props.match.params.id)
+    }, [props.match.params.id])
+
+    console.log(productsDetail)
 
     return (
         <div>
             <Grid container>
-                <Grid item md={3}>
-                    <CarouselProvider
-                        naturalSlideWidth={100}
-                        naturalSlideHeight={125}
-                        totalSlides={3}
-                    >
-                        <Slider>
-                            <Slide index={0}>
-                                <ImageWithZoom src={productDetail.image} />
-                            </Slide>
-                            <Slide index={1}>
-                                <ImageWithZoom src={productDetail.image} />
-                            </Slide>
-                            <Slide index={2}>
-                                <ImageWithZoom src={productDetail.image} />
-                            </Slide>
-                        </Slider>
-                        <ButtonBack>Back</ButtonBack>
-                        <ButtonNext>Next</ButtonNext>
-                    </CarouselProvider>
-                </Grid>
                 <Grid item md={9}>
                     <Paper>
                         <Grid item md={9}>
@@ -36,31 +23,23 @@ const ProductDetails = () => {
                                     <tbody>
                                         <tr>
                                             <td>Title:</td>
-                                            <td>{productDetail.title}</td>
+                                            <td>{productsDetail.title}</td>
                                         </tr>
                                         <tr>
                                             <td>Price:</td>
-                                            <td>{productDetail.price}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sale Price</td>
-                                            <td>{productDetail.salePrice}</td>
+                                            <td>{productsDetail.price}</td>
                                         </tr>
                                         <tr>
                                             <td>Description</td>
-                                            <td> {productDetail.description} </td>
+                                            <td> {productsDetail.description} </td>
                                         </tr>
                                         <tr>
-                                            <td>Count in stock</td>
-                                            <td> {productDetail.countInStock} </td>
+                                            <td>Structure</td>
+                                            <td> {productsDetail.structure} </td>
                                         </tr>
                                         <tr>
-                                            <td>Author</td>
-                                            <td> {productDetail.author} </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Phone number</td>
-                                            <td> {productDetail.phone} </td>
+                                            <td>Size</td>
+                                            <td> {productsDetail.size} </td>
                                         </tr>
                                     </tbody>
                                 </table>

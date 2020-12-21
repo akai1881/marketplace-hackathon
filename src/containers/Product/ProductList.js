@@ -1,5 +1,6 @@
 import { Paper } from '@material-ui/core';
 import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { productsContext } from '../../contexts/ProductContextProvider';
 
 const ProductList = () => {

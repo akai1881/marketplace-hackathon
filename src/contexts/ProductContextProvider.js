@@ -39,6 +39,8 @@ const ProductsContextProvider = ({ children }) => {
     return (
         <productsContext.Provider value={{
             products: state.products,
+            productsDetail: state.productsDetail,
+            getProductDetails,
             getProductList
         }}>
             {children}
