@@ -1,0 +1,56 @@
+body {
+    margin: 0 auto;
+}
+
+.footer-container {
+    background-color: #0d0d0e;
+    width: 100%;
+    min-height: 340px;
+}
+
+.footer-content {
+    padding: 40px;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    color: white;
+    list-style-type: none;
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-right-content {
+    margin: 40px 0 0 0;
+}
+
+.footer-left-content {
+    display: flex;
+    margin: 40px 0 40px 0;
+}
+
+.footer-left-title {
+    margin: 0;
+}
+
+.footer-right-payment-options {
+    margin: 40px 0 0 0;
+}
