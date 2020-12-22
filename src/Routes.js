@@ -7,6 +7,7 @@ import { AuthContextProvider } from './contexts/AuthContextProvider';
 import EditProduct from './containers/Product/EditProduct';
 import AddProduct from './containers/Product/AddProduct';
 import Dashboard from './containers/Dashboard/Dashboard';
+// import from './'
 
 const Routes = () => {
   return (
