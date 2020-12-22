@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -8,6 +8,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import ModalLogin from '../../../components/ModalLogin';
 import ModalSignup from '../../../components/ModalSingup';
 import useAuth from '../../../contexts/AuthContextProvider';
+import MenuProfile from '../../../components/Menu';
+import { productsContext } from '../../../contexts/ProductContextProvider';
+import { useHistory } from 'react-router-dom';
+import MenuData from './MenuData';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -22,6 +26,8 @@ const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const { getProductList } = useContext(productsContext);
+  const history = useHistory();
 
   const handleClickOpen = (event) => {
     if (currentUser) {
@@ -39,6 +45,19 @@ const Header = () => {
     setOpen(false);
   };
 
+  const addParams = (e, params) => {
+    const data = e.currentTarget.dataset.product;
+    if (data === 'all') {
+      history.push(history.location.pathname.replace(params));
+      getProductList();
+      return;
+    }
+    let search = new URLSearchParams(history.location.search);
+    search.set(params, data);
+    history.push(`${history.location.pathname}?${search.toString()}`);
+    getProductList();
+  };
+
   return (
     <>
       <header className="header">
@@ -47,16 +66,15 @@ const Header = () => {
         </div>
         <div className="header-nav">
           <ul className="header-menu">
-            <li className="header-menu-item">Все товары</li>
-            <li className="header-menu-item">Футболки</li>
-            <li className="header-menu-item">Свитшоты</li>
-            <li className="header-menu-item">худи</li>
-            <li className="header-menu-item">рубашки</li>
-            <li className="header-menu-item">кепки</li>
-            <li className="header-menu-item">шапки</li>
-            <li className="header-menu-item">поло</li>
-            <li className="header-menu-item">рюкзаки</li>
-            <li className="header-menu-item">сувениры</li>
+            {MenuData.map((item) => (
+              <li
+                className={item.className}
+                data-product={item.category}
+                onClick={(e) => addParams(e, 'category=')}
+              >
+                {item.title}
+              </li>
+            ))}
             {currentUser && currentUser.email === 'admin@admin.com' ? (
               <Link to="/addProduct">
                 <li className="header-menu-item">Добавить товар</li>

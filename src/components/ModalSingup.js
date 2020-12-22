@@ -1,6 +1,11 @@
 import React from 'react';
-import Modal from '@material-ui/core/Modal';
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import Signup from '../containers/Auth/Signup';
+import Button from '@material-ui/core/Button';
+import CloseIcon from '@material-ui/icons/Close';
+import { Typography } from '@material-ui/core';
 
 const ModalSignup = ({ open, setIsOpen, handleClick }) => {
   const handleClose = () => {

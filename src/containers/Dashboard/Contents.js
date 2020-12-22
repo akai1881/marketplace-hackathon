@@ -1,11 +1,9 @@
 import React from 'react';
+import ProductList from '../Product/ProductList';
+import { Grid } from '@material-ui/core';
 
 const Contents = () => {
-  return (
-    <div>
-      <div>Top Content!</div>
-    </div>
-  );
+  return <ProductList />;
 };
 
 export default Contents;

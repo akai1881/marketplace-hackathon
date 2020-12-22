@@ -1,10 +1,13 @@
 import React from 'react';
-import { Paper } from '@material-ui/core';
+import { fade, makeStyles, Paper } from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@material-ui/core/InputBase';
+import Search from '../../components/Search';
 
 const Sidebar = () => {
   return (
     <Paper>
-      <h1>Sidebar</h1>
+      <Search />
     </Paper>
   );
 };
