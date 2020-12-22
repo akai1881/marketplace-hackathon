@@ -21,6 +21,7 @@ const ProductList = () => {
   }, []);
 
   return (
+<<<<<<< HEAD
     <>
       <Grid container>
         {currentPost.map((item) => (
@@ -33,6 +34,20 @@ const ProductList = () => {
         changePage={changePage}
       />
     </>
+=======
+    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      {products.map((item) => (
+        <Link to={`/details/${item.id}`} key={item.id}>
+          <Paper
+
+            style={{ width: '250px', height: '250px', margin: '10px' }}
+          >
+            <h1 style={{ color: 'black' }}>{item.title}</h1>
+          </Paper>
+        </Link>
+      ))}
+    </div>
+>>>>>>> master
   );
 };
 
