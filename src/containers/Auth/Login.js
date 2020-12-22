@@ -5,7 +5,7 @@ import './Login.css';
 import useAuth from '../../contexts/AuthContextProvider';
 import Alert from '@material-ui/lab/Alert';
 
-const Login = ({ handleClose, setIsOpen }) => {
+const Login = ({ handleClose, setIsOpen, setOpen }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useAuth();
@@ -28,7 +28,7 @@ const Login = ({ handleClose, setIsOpen }) => {
   };
 
   const handleCloseModal = () => {
-    handleClose();
+    setOpen(false);
     setIsOpen(true);
   };
 

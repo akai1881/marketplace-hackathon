@@ -10,7 +10,6 @@ const ProductList = () => {
     getProductList();
   }, []);
 
-  console.log(products);
 
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>

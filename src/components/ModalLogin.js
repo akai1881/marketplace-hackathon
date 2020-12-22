@@ -1,27 +1,25 @@
 import React from 'react';
-import Popover from '@material-ui/core/Popover';
-import Paper from '@material-ui/core/Paper';
 import Login from '../containers/Auth/Login';
 import useAuth from '../contexts/AuthContextProvider';
 import Profile from '../containers/Profie/Profile';
 
-const ModalLogin = ({ id, open, anchorEl, handleClose, setIsOpen }) => {
-  const { currentUser } = useAuth();
+const useStyles = makeStyles((theme) => ({
+  dialogWrapper: {
+    position: 'absolute',
+    top: '63px',
+    right: '209px',
+  },
+}));
+
+const ModalLogin = ({ open, handleClose, setIsOpen, setOpen }) => {
+  const classes = useStyles();
 
   return (
-    <Popover
-      id={id}
+    <Dialog
       open={open}
-      anchorEl={anchorEl}
       onClose={handleClose}
-      anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'center',
-      }}
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'center',
-      }}
+      aria-labelledby="form-dialog-title"
+      classes={{ paper: classes.dialogWrapper }}
     >
       <Paper>
         {currentUser ? (

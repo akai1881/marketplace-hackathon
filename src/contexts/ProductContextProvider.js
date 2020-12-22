@@ -83,6 +83,6 @@ const ProductsContextProvider = ({ children }) => {
             {children}
         </productsContext.Provider>
     );
-};
+
 
 export default ProductsContextProvider;

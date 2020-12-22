@@ -15,6 +15,7 @@ const Routes = () => {
         <Header />
       </AuthContextProvider>
       <Switch>
+        <Route exact path="/" component={Dashboard} />
         <Route exact path="/details/:id" component={ProductDetails} />
         <Route exact path="/editProduct" component={EditProduct} />
         <Route exact path="/addProduct" component={AddProduct} />
