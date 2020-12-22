@@ -15,6 +15,9 @@ const reducer = (state = INIT_STATE, action) => {
     case 'GET_PRODUCT_DETAILS':
       return { ...state, productsDetail: action.payload };
 
+    case 'SEARCH_POST':
+      return { ...state, products: action.payload };
+
     default:
       return state;
   }
@@ -24,7 +27,12 @@ const ProductsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   async function getProductList() {
-    let { data } = await axios(`http://localhost:8000/products`);
+    const { data } = await axios(
+      `http://localhost:8000/products${window.location.search.replace(
+        /%3D/g,
+        ''
+      )}`
+    );
     dispatch({
       type: 'GET_PRODUCT_LIST',
       payload: data,
@@ -39,6 +47,18 @@ const ProductsContextProvider = ({ children }) => {
     });
   }
 
+  async function handleSearch(val) {
+    try {
+      let { data } = await axios(`http://localhost:8000/products?q=${val}`);
+      dispatch({
+        type: 'SEARCH_POST',
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <productsContext.Provider
       value={{
@@ -46,6 +66,7 @@ const ProductsContextProvider = ({ children }) => {
         productsDetail: state.productsDetail,
         getProductDetails,
         getProductList,
+        handleSearch,
       }}
     >
       {children}

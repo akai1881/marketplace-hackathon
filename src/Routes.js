@@ -12,13 +12,12 @@ const Routes = () => {
     <BrowserRouter>
       <AuthContextProvider>
         <Header />
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/details/:id" component={ProductDetails} />
+        </Switch>
+        <Footer />
       </AuthContextProvider>
-      <Switch>
-        <Route exact path="/" component={Dashboard} />
-        <Route exact path="/details/:id" component={ProductDetails} />
-      </Switch>
-      <Footer />
-      <ProductList />
     </BrowserRouter>
   );
 };
