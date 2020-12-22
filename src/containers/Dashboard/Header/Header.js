@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ModalLogin from '../../../components/ModalLogin';
 import ModalSignup from '../../../components/ModalSingup';
 import useAuth from '../../../contexts/AuthContextProvider';
+import MenuProfile from '../../../components/Menu';
 
 const useStyles = makeStyles((theme) => ({
   headerBtn: {
@@ -18,19 +19,25 @@ const useStyles = makeStyles((theme) => ({
 const Header = () => {
   const classes = useStyles();
   const { currentUser } = useAuth();
-  const [anchorEl, setAnchorEl] = React.useState(null);
   const [isOpen, setIsOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleClickOpen = (event) => {
+    if (currentUser) {
+      setAnchorEl(event.currentTarget);
+    }
+    if (!currentUser) {
+      setOpen(true);
+    }
   };
 
   const handleClose = () => {
-    setAnchorEl(null);
+    if (currentUser) {
+      setAnchorEl(null);
+    }
+    setOpen(false);
   };
-
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
 
   return (
     <>
@@ -61,23 +68,24 @@ const Header = () => {
               aria-haspopup="true"
               color="default"
               className={classes.headerBtn}
-              onClick={handleClick}
+              onClick={handleClickOpen}
             >
               <AccountCircle />
             </IconButton>
+
             <ModalLogin
-              id={id}
               open={open}
-              anchorEl={anchorEl}
+              setOpen={setOpen}
               handleClose={handleClose}
+              setIsOpen={setIsOpen}
+              title="Log In"
+            />
+            <MenuProfile
+              anchorEl={anchorEl}
               setAnchorEl={setAnchorEl}
-              setIsOpen={setIsOpen}
+              handleClose={handleClose}
             />
-            <ModalSignup
-              open={isOpen}
-              handleClick={handleClick}
-              setIsOpen={setIsOpen}
-            />
+            <ModalSignup open={isOpen} setIsOpen={setIsOpen} />
             <IconButton
               aria-label="show 11 new notifications"
               color="default"
