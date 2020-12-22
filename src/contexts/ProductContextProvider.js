@@ -5,7 +5,8 @@ export const productsContext = React.createContext();
 
 let INIT_STATE = {
     products: [],
-    productsDetail: null
+    productsDetail: null,
+    editToProduct: null
 }
 
 const reducer = (state = INIT_STATE, action) => {
@@ -14,6 +15,8 @@ const reducer = (state = INIT_STATE, action) => {
             return { ...state, products: action.payload }
         case "GET_PRODUCT_DETAILS":
             return { ...state, productsDetail: action.payload }
+        case "EDIT_PRODUCT":
+            return { ...state, editToProduct: action.payload }
     }
 }
 
@@ -36,12 +39,46 @@ const ProductsContextProvider = ({ children }) => {
         })
     }
 
+    async function deleteProduct(id) {
+        await axios.delete(`http://localhost:8000/products/${id}`)
+        getProductList()
+    }
+
+    async function editProduct(id) {
+        let { data } = await axios(`http://localhost:8000/products/${id}`)
+        dispatch({
+            type: "EDIT_PRODUCT",
+            payload: data
+        })
+    }
+
+    async function saveProduct(newContact) {
+        try {
+            await axios.patch(`http://localhost:8000/products/${newContact.id}`, newContact)
+        } catch (error) {
+            console.log('error')
+        }
+        getProductList()
+    }
+
+
+    async function addProduct(newContact) {
+        await axios.post(`http://localhost:8000/products`, newContact)
+        getProductList()
+    }
+
+
     return (
         <productsContext.Provider value={{
             products: state.products,
             productsDetail: state.productsDetail,
+            editToProduct: state.editToProduct,
+            addProduct,
+            deleteProduct,
             getProductDetails,
-            getProductList
+            getProductList,
+            saveProduct,
+            editProduct
         }}>
             {children}
         </productsContext.Provider>
