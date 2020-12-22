@@ -6,7 +6,7 @@ body {
 }
 
 .footer-container {
-    background-color: #0d0d0e;
+    background-color: black;
     width: 100%;
     min-height: 340px;
 }
@@ -15,7 +15,7 @@ body {
     padding: 40px;
 }
 
-ul {
+.footer-menu-ul {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -23,17 +23,10 @@ ul {
     margin: 0;
 }
 
-li {
+.footer-menu-li {
     color: white;
     list-style-type: none;
-}
-
-h1 {
-    color: white;
-}
-
-p {
-    color: white;
+    cursor: pointer;
 }
 
 .footer-right {
@@ -56,4 +49,8 @@ p {
 
 .footer-right-payment-options {
     margin: 40px 0 0 0;
+}
+
+.footer-socials {
+    margin: 23px 20px 0 10px;
 }
