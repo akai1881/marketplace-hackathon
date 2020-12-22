@@ -2,7 +2,7 @@ import React from 'react';
 import Login from '../containers/Auth/Login';
 import useAuth from '../contexts/AuthContextProvider';
 import Profile from '../containers/Profie/Profile';
-import { Popover } from '@material-ui/core';
+import { makeStyles, Popover } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   dialogWrapper: {
