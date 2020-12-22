@@ -1,0 +1,33 @@
+.header {
+  max-width: 100%;
+  background-color: black;
+}
+
+.header-nav {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100vw - 800px);
+  height: 70px;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  color: white;
+  list-style: none;
+}
+
+.header-menu-item {
+  cursor: pointer;
+}
+
+.header-options {
+  display: flex;
+  margin-left: 20px;
+}
