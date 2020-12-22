@@ -3,8 +3,11 @@ import { productsContext } from '../../contexts/ProductContextProvider';
 import { Grid, Paper } from '@material-ui/core';
 
 const ProductDetails = (props) => {
+    const { getProductDetails, productsDetail } = useContext(productsContext);
 
-    const { getProductDetails, productsDetail } = useContext(productsContext)
+    // useEffect(() => {
+    //     getProductDetails(props.match.params.id);
+    // }, [props.match.params.id]);
 
     console.log(props)
 
@@ -55,6 +58,5 @@ const ProductDetails = (props) => {
             }
         </div>
     );
-};
 
-export default ProductDetails;
+    export default ProductDetails;
