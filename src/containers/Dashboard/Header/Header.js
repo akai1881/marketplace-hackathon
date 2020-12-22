@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ModalLogin from '../../../components/ModalLogin';
 import ModalSignup from '../../../components/ModalSingup';
 import useAuth from '../../../contexts/AuthContextProvider';
-import MenuProfile from '../../../components/Menu';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   headerBtn: {
@@ -58,7 +58,9 @@ const Header = () => {
             <li className="header-menu-item">рюкзаки</li>
             <li className="header-menu-item">сувениры</li>
             {currentUser && currentUser.email === 'admin@admin.com' ? (
-              <li className="header-menu-item">Добавить товар</li>
+              <Link to="/addProduct">
+                <li className="header-menu-item">Добавить товар</li>
+              </Link>
             ) : null}
           </ul>
           <div className="header-options">
