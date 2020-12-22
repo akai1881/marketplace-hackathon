@@ -5,7 +5,7 @@ import './Signup.css';
 import useAuth from '../../contexts/AuthContextProvider';
 import Alert from '@material-ui/lab/Alert';
 
-const Signup = ({ setIsOpen, handleClick: openModal }) => {
+const Signup = ({ setIsOpen }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
