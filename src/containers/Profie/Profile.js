@@ -21,7 +21,7 @@ const Profile = ({ handleClose }) => {
     <>
       {currentUser ? (
         <>
-          <h1>{currentUser.email}</h1>
+          <h1 style={{ color: 'black' }}>{currentUser.email}</h1>
           <Button onClick={handleLogout}>Log Out</Button>
         </>
       ) : null}
