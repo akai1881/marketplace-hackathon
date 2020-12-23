@@ -7,21 +7,33 @@ import { AuthContextProvider } from './contexts/AuthContextProvider';
 import EditProduct from './containers/Product/EditProduct';
 import AddProduct from './containers/Product/AddProduct';
 import Dashboard from './containers/Dashboard/Dashboard';
-// import from './'
+import ProductsContextProvider from './contexts/ProductContextProvider';
+import Category from './containers/Category/Category';
+import Cart from './containers/Cart/Cart';
+import Wrapper from './containers/Dashboard/Wrapper';
+import Payment from './containers/Payment/Payment';
 
 const Routes = () => {
   return (
     <BrowserRouter>
-      <AuthContextProvider>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Dashboard} />
-          <Route exact path="/details/:id" component={ProductDetails} />
-          <Route exact path="/editProduct" component={EditProduct} />
-          <Route exact path="/addProduct" component={AddProduct} />
-        </Switch>
-        <Footer />
-      </AuthContextProvider>
+      <ProductsContextProvider>
+        <AuthContextProvider>
+          <Header />
+          <Cart />
+
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/product" component={Category} />
+            <Route exact path="/details/:id" component={ProductDetails} />
+            <Route exact path="/editProduct" component={EditProduct} />
+            <Route exact path="/addProduct" component={AddProduct} />
+          </Switch>
+          <Switch>
+            <Route exact path="/payment" component={Payment} />
+          </Switch>
+          <Footer />
+        </AuthContextProvider>
+      </ProductsContextProvider>
     </BrowserRouter>
   );
 };
