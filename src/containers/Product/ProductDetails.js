@@ -43,7 +43,6 @@ const ProductDetails = (props) => {
                                     <Link to="/editProduct">
                                         <button className="product-details-edit-btn" onClick={() => editProduct(productsDetail.id)} > <EditIcon style={{ color: "white" }} /> </button>
                                     </Link>
-
                                 </div>
                                 <div className="product-details-delivery">
                                     <p>(Доставка по миру - 850 RUB, по Кыргызстану - 50 СОМ)</p>
