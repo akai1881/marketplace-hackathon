@@ -11,7 +11,7 @@ import ProductsContextProvider from './contexts/ProductContextProvider';
 import Category from './containers/Category/Category';
 import Cart from './containers/Cart/Cart';
 import Wrapper from './containers/Dashboard/Wrapper';
-import Payment from './containers/Payment/Payment';
+import OrderForm from './containers/OrderForm/OrderForm';
 
 const Routes = () => {
   return (
@@ -20,7 +20,6 @@ const Routes = () => {
         <AuthContextProvider>
           <Header />
           <Cart />
-
           <Switch>
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/product" component={Category} />
@@ -29,7 +28,7 @@ const Routes = () => {
             <Route exact path="/addProduct" component={AddProduct} />
           </Switch>
           <Switch>
-            <Route exact path="/payment" component={Payment} />
+            <Route exact path="/payment" component={OrderForm} />
           </Switch>
           <Footer />
         </AuthContextProvider>
