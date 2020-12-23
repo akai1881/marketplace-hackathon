@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { productsContext } from '../../contexts/ProductContextProvider';
 
 const AddProduct = () => {
+
     const { addProduct } = useContext(productsContext)
 
     let [title, setTitle] = useState('');

@@ -1,24 +1,35 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { productsContext } from '../../contexts/ProductContextProvider';
-import { Grid, Paper } from '@material-ui/core';
+import { Grid, Paper, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
-
 const ProductDetails = (props) => {
-    const { getProductDetails, productsDetail, deleteProduct, editProduct } = useContext(productsContext);
+  const {
+    getProductDetails,
+    productsDetail,
+    deleteProduct,
+    editProduct,
+    showSidebar,
+    addProductToCart,
+    countProductsInCart,
+  } = useContext(productsContext);
 
-    useEffect(() => {
-        getProductDetails(props.match.params.id);
-    }, [props.match.params.id]);
+  const { currentUser } = useAuth();
 
-    console.log(props)
+  useEffect(() => {
+    getProductDetails(props.match.params.id);
+  }, [props.match.params.id]);
 
-    useEffect(() => {
-        getProductDetails(props.match.params.id)
-    }, [props.match.params.id])
+  useEffect(() => {
+    getProductDetails(props.match.params.id);
+  }, [props.match.params.id]);
 
-    console.log(productsDetail)
+  const handleAddToCart = (item) => {
+    addProductToCart(item);
+    countProductsInCart();
+    showSidebar();
+  };
 
     return (
         <>
