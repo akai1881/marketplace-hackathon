@@ -1,12 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
-
-body {
-    margin: 0 auto;
-    font-family: "Cairo", sans-serif;
-}
-
 .footer-container {
-    background-color: #0d0d0e;
+    background-color: black;
     width: 100%;
     min-height: 340px;
 }
