@@ -1,6 +1,6 @@
 import React from 'react';
 import Pagination from '@material-ui/lab/Pagination';
-import { Link } from 'react-scroll';
+import { Link } from 'react-scroll'
 
 const PaginationComp = ({ totalPage, postPerPage, changePage }) => {
   const pageNums = [];
