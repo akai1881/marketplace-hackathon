@@ -15,14 +15,13 @@ const Dashboard = () => {
   return (
     <Grid
       container
-      spacing={2}
       id="product-container"
       classes={{ container: classes.dashboardContainer }}
     >
       <Grid item xs={2}>
         <Sidebar />
       </Grid>
-      <Grid item xs={7}>
+      <Grid item xs={10}>
         <Contents />
       </Grid>
     </Grid>
