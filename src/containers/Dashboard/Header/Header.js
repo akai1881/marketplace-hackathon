@@ -75,7 +75,11 @@ const Header = () => {
     <>
       <header className="header">
         <div className="header-first">
-          <img src="" className="header-logo" alt="" />
+          <div className="header-line-column"></div>
+          <div className="header-line-row"></div>
+          <img src="https://upload.wikimedia.org/wikipedia/ru/d/d2/JolyBell_logo.jpg" className="header-logo" alt="" />
+          <div className="header-line-row"></div>
+          <div className="header-line-column"></div>
         </div>
         <div className="header-nav">
           <ul className="header-menu">
@@ -90,7 +94,7 @@ const Header = () => {
               </li>
             ))}
             {currentUser && currentUser.email === 'admin@admin.com' ? (
-              <Link to="/addProduct">
+              <Link to="/addProduct" style={{ textDecoration: "none" }}>
                 <li className="header-menu-item">Добавить товар</li>
               </Link>
             ) : null}

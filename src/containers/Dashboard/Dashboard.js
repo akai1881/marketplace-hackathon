@@ -24,7 +24,7 @@ const Dashboard = () => {
         <Grid item xs={2}>
           <Sidebar />
         </Grid>
-        <Grid item xs={7}>
+        <Grid item xs={10}>
           <Contents />
         </Grid>
       </Grid>
