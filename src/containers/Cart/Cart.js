@@ -66,7 +66,6 @@ const Cart = () => {
                               ) : (
                                 <span>{data.title}</span>
                               )}
-                              ё
                             </button>
                           ))}
                         </div>
