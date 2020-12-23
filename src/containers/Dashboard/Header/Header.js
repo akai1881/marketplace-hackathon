@@ -18,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
   headerBtn: {
     color: 'white',
   },
+  badgeBtn: {
+    color: 'black',
+    backgroundColor: 'white',
+  },
 }));
 
 const Header = () => {
@@ -26,7 +30,9 @@ const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const { getProductList } = useContext(productsContext);
+  const { getProductList, productsCountInCart, showSidebar } = useContext(
+    productsContext
+  );
   const history = useHistory();
 
   const handleClickOpen = (event) => {
@@ -36,6 +42,11 @@ const Header = () => {
     if (!currentUser) {
       setOpen(true);
     }
+  };
+
+  const handleClick = () => {
+    console.log('worked');
+    showSidebar();
   };
 
   const handleClose = () => {
@@ -48,10 +59,12 @@ const Header = () => {
   const addParams = (e, params) => {
     const data = e.currentTarget.dataset.product;
     if (data === 'all') {
+      history.push('/');
       history.push(history.location.pathname.replace(params));
       getProductList();
       return;
     }
+    history.push('/product');
     let search = new URLSearchParams(history.location.search);
     search.set(params, data);
     history.push(`${history.location.pathname}?${search.toString()}`);
@@ -71,6 +84,7 @@ const Header = () => {
                 className={item.className}
                 data-product={item.category}
                 onClick={(e) => addParams(e, 'category=')}
+                key={item.id}
               >
                 {item.title}
               </li>
@@ -110,8 +124,16 @@ const Header = () => {
               aria-label="show 11 new notifications"
               color="default"
               className={classes.headerBtn}
+              onClick={handleClick}
             >
-              <Badge badgeContent={11} color="secondary">
+              <Badge
+                badgeContent={productsCountInCart}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                classes={{ badge: classes.badgeBtn }}
+              >
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>

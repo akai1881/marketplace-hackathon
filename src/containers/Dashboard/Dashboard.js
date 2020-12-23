@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
 import Sidebar from './Sidebar';
 import Contents from './Contents';
+import Wrapper from './Wrapper';
 
 const useStyles = makeStyles({
   dashboardContainer: {
@@ -13,19 +14,21 @@ const Dashboard = () => {
   const classes = useStyles();
 
   return (
-    <Grid
-      container
-      spacing={2}
-      id="product-container"
-      classes={{ container: classes.dashboardContainer }}
-    >
-      <Grid item xs={2}>
-        <Sidebar />
+    <Wrapper>
+      <Grid
+        container
+        spacing={2}
+        id="product-container"
+        classes={{ container: classes.dashboardContainer }}
+      >
+        <Grid item xs={2}>
+          <Sidebar />
+        </Grid>
+        <Grid item xs={7}>
+          <Contents />
+        </Grid>
       </Grid>
-      <Grid item xs={7}>
-        <Contents />
-      </Grid>
-    </Grid>
+    </Wrapper>
   );
 };
 
