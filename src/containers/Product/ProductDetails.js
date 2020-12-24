@@ -6,7 +6,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import useAuth from '../../contexts/AuthContextProvider';
 import Spinner from '../../components/Spinner';
-import { Zoom } from 'react-slideshow-image';
+import { Slide } from 'react-slideshow-image';
+import Reviews from '../Reviews/Reviews';
+import AddReviews from '../Reviews/AddReviews';
 
 
 const ProductDetails = (props) => {
@@ -35,13 +37,6 @@ const ProductDetails = (props) => {
         countProductsInCart();
         showSidebar();
     };
-    // console.log(productsDetail.images[1])
-
-    const images = [
-        productsDetail ? productsDetail.images[0] : "hello",
-        productsDetail ? productsDetail.images[1] : "hello"
-    ];
-
 
     return (
         <>
@@ -51,12 +46,7 @@ const ProductDetails = (props) => {
                     <Grid container className="product-details-content">
                         <Grid item md={7}>
                             <div className="product-details-slider">
-                                < Zoom scale={0.4}>
-                                    {
-                                        images.map((each, index) => <img key={index} style={{ width: "100%" }} src={each} />)
-                                    }
-                                </ Zoom >
-                                {/* <img style={{ width: "450px", marginTop: "-45px" }} src={productsDetail.images[0]} alt="" /> */}
+                                <img style={{ width: "100%" }} src={productsDetail.images[0]} alt="" />
                             </div>
                         </Grid>
                         <Grid item md={5}>
@@ -125,7 +115,8 @@ const ProductDetails = (props) => {
                             <h1>Рекомендуем к <span style={{ backgroundColor: "black", color: "white", padding: "5px" }}>покупке</span></h1>
                         </div>
                         <div className="product-details-recommendations-slider">
-
+                            <AddReviews />
+                            <Reviews />
                         </div>
                     </div>
                 </div>
