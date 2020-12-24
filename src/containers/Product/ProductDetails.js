@@ -7,6 +7,8 @@ import EditIcon from '@material-ui/icons/Edit';
 import useAuth from '../../contexts/AuthContextProvider';
 import Spinner from '../../components/Spinner';
 import { Zoom } from 'react-slideshow-image';
+import { formatNumber } from '../../helpers/formatPrice';
+import ReactStars from 'react-rating-stars-component';
 
 const ProductDetails = (props) => {
   const {
@@ -17,13 +19,13 @@ const ProductDetails = (props) => {
     showSidebar,
     addProductToCart,
     countProductsInCart,
+    setRating,
+    // rating,
   } = useContext(productsContext);
 
-  const { currentUser } = useAuth();
+  const [rating] = useState(productsDetail);
 
-  useEffect(() => {
-    getProductDetails(props.match.params.id);
-  }, [props.match.params.id]);
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     getProductDetails(props.match.params.id);
@@ -33,6 +35,14 @@ const ProductDetails = (props) => {
     addProductToCart(item);
     countProductsInCart();
     showSidebar();
+  };
+
+  const handleChange = (value) => {
+    const newObj = {
+      ...rating,
+      rating: value,
+    };
+    setRating(newObj, props.match.params.id);
   };
 
   const images = [
@@ -60,26 +70,33 @@ const ProductDetails = (props) => {
               <div className="product-details-info">
                 <div className="product-details-top-content">
                   <div className="product-details-price">
-                    {productsDetail.price}
+                    {formatNumber(productsDetail.price)} RUB
                   </div>
-                  <Link to="/">
-                    <button
-                      className="product-details-delete-btn"
-                      onClick={() => deleteProduct(productsDetail.id)}
-                    >
-                      {' '}
-                      <DeleteIcon style={{ color: 'white' }} />{' '}
-                    </button>
-                  </Link>
-                  <Link to="/editProduct">
-                    <button
-                      className="product-details-edit-btn"
-                      onClick={() => editProduct(productsDetail.id)}
-                    >
-                      {' '}
-                      <EditIcon style={{ color: 'white' }} />{' '}
-                    </button>
-                  </Link>
+                  <ReactStars
+                    size={30}
+                    value={productsDetail.rating}
+                    onChange={(value) => handleChange(value)}
+                  />
+                  <div className="product-detail-admin">
+                    <Link to="/">
+                      <button
+                        className="product-details-delete-btn"
+                        onClick={() => deleteProduct(productsDetail.id)}
+                      >
+                        {' '}
+                        <DeleteIcon style={{ color: 'white' }} />{' '}
+                      </button>
+                    </Link>
+                    <Link to="/editProduct">
+                      <button
+                        className="product-details-edit-btn"
+                        onClick={() => editProduct(productsDetail.id)}
+                      >
+                        {' '}
+                        <EditIcon style={{ color: 'white' }} />{' '}
+                      </button>
+                    </Link>
+                  </div>
                 </div>
                 <div className="product-details-delivery">
                   <p>(Доставка по миру - 850 RUB, по Кыргызстану - 50 СОМ)</p>

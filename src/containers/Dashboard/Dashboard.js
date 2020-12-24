@@ -1,14 +1,22 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import Sidebar from './Sidebar';
 import Contents from './Contents';
 import Wrapper from './Wrapper';
 
+const useStyles = makeStyles({
+  sidebar: {
+    paddingLeft: '30px',
+  },
+});
+
 const Dashboard = () => {
+  const classes = useStyles();
+
   return (
     <Wrapper>
-      <Grid container spacing={4} id="product-container">
-        <Grid item xs={2}>
+      <Grid container id="product-container">
+        <Grid item xs={2} classes={{ item: classes.sidebar }}>
           <Sidebar />
         </Grid>
         <Grid item xs={10}>

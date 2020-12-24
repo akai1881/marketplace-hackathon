@@ -86,11 +86,11 @@ const ProductsContextProvider = ({ children }) => {
     });
   }
 
-  async function saveProduct(newContact) {
+  async function saveProduct(newProduct) {
     try {
       await axios.patch(
-        `http://localhost:8000/products/${newContact.id}`,
-        newContact
+        `http://localhost:8000/products/${newProduct.id}`,
+        newProduct
       );
     } catch (error) {
       console.log('error');
@@ -98,8 +98,8 @@ const ProductsContextProvider = ({ children }) => {
     getProductList();
   }
 
-  async function addProduct(newContact) {
-    await axios.post(`http://localhost:8000/products`, newContact);
+  async function addProduct(newProduct) {
+    await axios.post(`http://localhost:8000/products`, newProduct);
     getProductList();
   }
 
@@ -236,6 +236,15 @@ const ProductsContextProvider = ({ children }) => {
     }
   }
 
+  async function setRating(item, id) {
+    const { data } = await axios.patch(
+      `http://localhost:8000/products/${id}`,
+      item
+    );
+    getCart();
+    console.log(item, id);
+  }
+
   return (
     <productsContext.Provider
       value={{
@@ -258,6 +267,7 @@ const ProductsContextProvider = ({ children }) => {
         sidebar,
         showSidebar,
         chooseSize,
+        setRating,
       }}
     >
       {children}
