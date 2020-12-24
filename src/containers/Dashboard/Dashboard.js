@@ -5,8 +5,8 @@ import Contents from './Contents';
 import Wrapper from './Wrapper';
 
 const useStyles = makeStyles({
-  dashboardContainer: {
-    padding: '80px 0 100px 0px',
+  sidebar: {
+    paddingLeft: '30px',
   },
 });
 
@@ -15,16 +15,11 @@ const Dashboard = () => {
 
   return (
     <Wrapper>
-      <Grid
-        container
-        spacing={2}
-        id="product-container"
-        classes={{ container: classes.dashboardContainer }}
-      >
-        <Grid item xs={2}>
+      <Grid container id="product-container">
+        <Grid item xs={false} sm={2} classes={{ item: classes.sidebar }}>
           <Sidebar />
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={12} sm={10}>
           <Contents />
         </Grid>
       </Grid>

@@ -21,28 +21,8 @@
       ]
     },
     {
-      "title": "B.O.M.J White",
-      "price": "1751",
-      "structure": "95% cotton, 5% spandex. Плотность 170 г/м²",
-      "description": "Футболка линейки B.O.M.J - первая единица контрбрендовой линии одежды. Потрясающие качество в совместительстве с уточненным подходом к деталям, которым не могут похвастаться именитые раздутые фирмы.",
-      "size": "S",
-      "category": "t-shirts",
-      "images": [
-        "https://jolybell.com/storage/mhmabzot5t.webp?preview=&width=765&height=841&quality=100",
-        "https://jolybell.com/storage/97rehmlg2j.webp?width=765&height=843&quality=100"
-      ],
-      "id": 1608756115084,
-      "reviews": [
-        {
-          "name": "Rustambek",
-          "surname": "abd",
-          "comment": "Rutambelledfsdg"
-        }
-      ]
-    },
-    {
       "title": "Marginal Black",
-      "price": "1750",
+      "price": "5000",
       "structure": "95% cotton, 5% spandex",
       "description": "Ткань сорта пенье",
       "size": "S",
@@ -438,7 +418,8 @@
           "surname": "abd",
           "comment": "Rutambelledfsdg"
         }
-      ]
+      ],
+      "rating": 3
     },
     {
       "title": "Худи Tryapka Black",
@@ -558,7 +539,8 @@
           "surname": "abd",
           "comment": "Rutambelledfsdg"
         }
-      ]
+      ],
+      "rating": 3
     },
     {
       "title": "JOLY.SHIRT White",
@@ -841,15 +823,15 @@
       ]
     },
     {
-      "title": "Шапка Black",
-      "price": "900",
-      "structure": "50% acryl, 50% wool",
-      "description": "Не морозь себе голову",
-      "size": "S",
-      "category": "hats",
+      "title": "234567",
+      "price": "823456576879",
+      "structure": "12435678uoi",
+      "description": "23456789",
+      "size": "32454657687",
+      "category": "t-shirts",
       "images": [
-        "https://jolybell.com/storage/8lj1e9678m.webp?preview=&width=765&height=803&quality=100",
-        ""
+        "https://jolybell.com/storage/pczcxguwlk.webp?preview=&width=765&height=755&quality=100",
+        "https://jolybell.com/storage/pczcxguwlk.webp?preview=&width=765&height=755&quality=100"
       ],
       "id": 1608760488578,
       "reviews": [
@@ -858,7 +840,8 @@
           "surname": "abd",
           "comment": "Rutambelledfsdg"
         }
-      ]
+      ],
+      "rating": 5
     },
     {
       "title": "JOLY.POLO Black",
@@ -1021,57 +1004,39 @@
       ]
     },
     {
-      "name": "Rustambek",
-      "surname": "Abdyldaev",
-      "comment": "Хороший товар. Советую",
-      "id": 1608799081137
+      "title": "B.O.M.J Black",
+      "price": "1750",
+      "structure": "95% cotton, 5% spandex. Плотность 170 г/м²",
+      "description": "Футболка линейки B.O.M.J - первая единица контрбрендовой линии одежды. Потрясающие качество в совместительстве с утонченным подходом к деталям, которым не могут похвастаться именитые раздутые фирмы.",
+      "size": "S",
+      "category": "t-shirts",
+      "images": [
+        "https://jolybell.com/storage/ngm6sm8lya.webp?preview=&width=765&height=841&quality=100",
+        "https://jolybell.com/storage/cgt40j9mjg.webp?width=765&height=843&quality=100"
+      ],
+      "id": 1608815798603,
+      "reviews": [
+        {
+          "name": "Rustambek",
+          "surname": "abd",
+          "comment": "Rutambelledfsdgasdfghjkhgfd dfshdht hdfg sdhd erg heherhehadfgdsfhw eqwrg wqrg gwrgsfg qr"
+        }
+      ],
+      "rating": 3
     },
     {
-      "name": "Rustambek",
-      "surname": "Abdyldaev",
-      "comment": "Хороший товар. Советую",
-      "id": 1608799087888
-    },
-    {
-      "name": "Rustambek",
-      "surname": "Abdyldaev",
-      "comment": "Хороший товар. Советую",
-      "id": 1608799137011
-    },
-    {
-      "name": "Rustambek",
-      "surname": "Abdyldaev",
-      "comment": "Хороший товар. Советую",
-      "id": 1608799138280
-    },
-    {
-      "name": "ыцувкаперноекуцй",
-      "surname": "йцукенгоекуцй",
-      "comment": "йцукенг",
-      "id": 1608799138281
-    },
-    {
-      "name": "ыцувкаперноекуцй",
-      "surname": "йцукенгоекуцй",
-      "comment": "йцукенг",
-      "id": 1608799138282
-    },
-    {
-      "name": "qwertewq",
-      "surname": "wdewwww",
-      "comment": "qwerfgewq",
-      "id": 1608799138283
-    },
-    {
-      "name": "qwe",
-      "surname": "qwqwqwq",
-      "comment": "qqqwqqwqqw",
-      "id": 1608799138284
-    },
-    {
-      "name": "",
-      "surname": "",
-      "id": 1608799138285
+      "title": "234567",
+      "price": "823456576879",
+      "structure": "12435678uoi",
+      "description": "23456789",
+      "size": "32454657687",
+      "category": "t-shirts",
+      "images": [
+        "https://jolybell.com/storage/pczcxguwlk.webp?preview=&width=765&height=755&quality=100",
+        "https://jolybell.com/storage/pczcxguwlk.webp?preview=&width=765&height=755&quality=100"
+      ],
+      "id": 1608816984968,
+      "rating": 3
     }
   ]
 }

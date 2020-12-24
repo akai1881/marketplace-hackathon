@@ -1,6 +1,6 @@
 import React from 'react';
 import Pagination from '@material-ui/lab/Pagination';
-import { Link } from 'react-scroll'
+import { Link } from 'react-scroll';
 
 const PaginationComp = ({ totalPage, postPerPage, changePage }) => {
   const pageNums = [];
@@ -13,7 +13,7 @@ const PaginationComp = ({ totalPage, postPerPage, changePage }) => {
     <div
       style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}
     >
-      <Link to="product-container" spy={true} smooth={true} duration={400}>
+      <Link to="product-container" spy={true} smooth={true} duration={500}>
         <Pagination
           count={pageNums.length}
           onChange={(e, page) => changePage(page)}
