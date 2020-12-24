@@ -1,0 +1,70 @@
+/* ====================================================== Reviews */
+
+.reviews-container {
+    padding: 30px 250px;
+}
+
+.reviews-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.reviews-information {
+    background-color: black;
+    padding: 5px 15px 5px 15px;
+    border-radius: 20px;
+    width: 250px;
+    height: 100px;
+}
+
+.reviews-comment {
+    background-color: white;
+    border: 2px #9c9eaf;
+    border-radius: 20px;
+    width: 500px;
+    padding: 5px 15px 5px 15px;
+}
+
+/* ====================================================== Add Reviews */
+
+.addReviews-container {
+    padding: 30px 250px;
+}
+
+.addReviews-content {
+    display: flex;
+}
+
+.addReviews-input {
+    width: 200px;
+    height: 36px;
+    padding: 0 10px 0 10px;
+    background-color: white;
+    border-radius: 1000px;
+    outline: none;
+    border: none;
+}
+
+.addReviews-input-comment {
+    width: 100%;
+    height: 180px;
+    padding: 0 10px 0 10px;
+    background-color: white;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+}
+
+.addReviews-btn {
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 25px;
+}

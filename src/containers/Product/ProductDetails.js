@@ -9,6 +9,9 @@ import Spinner from '../../components/Spinner';
 import { Zoom } from 'react-slideshow-image';
 import { formatNumber } from '../../helpers/formatPrice';
 import ReactStars from 'react-rating-stars-component';
+import { Slide } from 'react-slideshow-image';
+import Reviews from '../Reviews/Reviews';
+import AddReviews from '../Reviews/AddReviews';
 
 const ProductDetails = (props) => {
   const {
@@ -50,104 +53,113 @@ const ProductDetails = (props) => {
     productsDetail ? productsDetail.images[1] : 'hello',
   ];
 
+  // <Zoom scale={0.4}>
+  //                 {images.map((each, index) => (
+  //                   <img key={index} style={{ width: '100%' }} src={each} />
+  //                 ))}
+  //               </Zoom>
+
   return (
     <>
       {productsDetail ? (
         <div className="product-details-container">
           <h1 className="product-details-title"> {productsDetail.title} </h1>
           <Grid container className="product-details-content">
-            <Grid item md={7}>
-              <div className="product-details-slider">
-                <Zoom scale={0.4}>
-                  {images.map((each, index) => (
-                    <img key={index} style={{ width: '100%' }} src={each} />
-                  ))}
-                </Zoom>
-                {/* <img style={{ width: "450px", marginTop: "-45px" }} src={productsDetail.images[0]} alt="" /> */}
-              </div>
-            </Grid>
-            <Grid item md={5}>
-              <div className="product-details-info">
-                <div className="product-details-top-content">
-                  <div className="product-details-price">
-                    {formatNumber(productsDetail.price)} RUB
-                  </div>
-                  <ReactStars
-                    size={30}
-                    value={productsDetail.rating}
-                    onChange={(value) => handleChange(value)}
+            <Grid item xs={1} />
+            <Grid container item xs={10}>
+              <Grid item md={7}>
+                <div className="product-details-slider">
+                  <img
+                    style={{ width: '450px', marginTop: '-45px' }}
+                    src={productsDetail.images[0]}
+                    alt=""
                   />
-                  <div className="product-detail-admin">
-                    <Link to="/">
-                      <button
-                        className="product-details-delete-btn"
-                        onClick={() => deleteProduct(productsDetail.id)}
-                      >
-                        {' '}
-                        <DeleteIcon style={{ color: 'white' }} />{' '}
+                </div>
+              </Grid>
+              <Grid item md={5}>
+                <div className="product-details-info">
+                  <div className="product-details-top-content">
+                    <div className="product-details-price">
+                      {formatNumber(productsDetail.price)} RUB
+                    </div>
+                    <ReactStars
+                      size={30}
+                      value={productsDetail.rating}
+                      onChange={(value) => handleChange(value)}
+                    />
+                    <div className="product-detail-admin">
+                      <Link to="/">
+                        <button
+                          className="product-details-delete-btn"
+                          onClick={() => deleteProduct(productsDetail.id)}
+                        >
+                          {' '}
+                          <DeleteIcon style={{ color: 'white' }} />{' '}
+                        </button>
+                      </Link>
+                      <Link to="/editProduct">
+                        <button
+                          className="product-details-edit-btn"
+                          onClick={() => editProduct(productsDetail.id)}
+                        >
+                          {' '}
+                          <EditIcon style={{ color: 'white' }} />{' '}
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="product-details-delivery">
+                    <p>(Доставка по миру - 850 RUB, по Кыргызстану - 50 СОМ)</p>
+                  </div>
+                  <div className="product-details-line"></div>
+                  <div className="product-details-description">
+                    <p> {productsDetail.description} </p>
+                  </div>
+                  <div className="product-details-structure">
+                    <p>Состав: {productsDetail.structure} </p>
+                  </div>
+                  <div className="product-details-size-content">
+                    <p>Выберите размер:</p>
+                    <div className="product-details-sizes">
+                      <button className="sizes" value="XS">
+                        XS
                       </button>
-                    </Link>
-                    <Link to="/editProduct">
-                      <button
-                        className="product-details-edit-btn"
-                        onClick={() => editProduct(productsDetail.id)}
-                      >
-                        {' '}
-                        <EditIcon style={{ color: 'white' }} />{' '}
+                      <button className="sizes" value="S">
+                        S
                       </button>
-                    </Link>
+                      <button className="sizes" value="M">
+                        M
+                      </button>
+                      <button className="sizes" value="L">
+                        L
+                      </button>
+                      <button className="sizes" value="XL">
+                        XL
+                      </button>
+                      <button className="sizes" value="2XL">
+                        2XL
+                      </button>
+                      <button className="sizes" value="3XL">
+                        3XL
+                      </button>
+                    </div>
+                  </div>
+                  <div className="product-details-count-and-cart">
+                    <div className="product-details-count">
+                      <p>Количество: </p>
+                      <input type="number" />
+                    </div>
+                    <div
+                      className="product-details-cart"
+                      onClick={() => handleAddToCart(productsDetail)}
+                    >
+                      Добавить в корзину
+                    </div>
                   </div>
                 </div>
-                <div className="product-details-delivery">
-                  <p>(Доставка по миру - 850 RUB, по Кыргызстану - 50 СОМ)</p>
-                </div>
-                <div className="product-details-line"></div>
-                <div className="product-details-description">
-                  <p> {productsDetail.description} </p>
-                </div>
-                <div className="product-details-structure">
-                  <p>Состав: {productsDetail.structure} </p>
-                </div>
-                <div className="product-details-size-content">
-                  <p>Выберите размер:</p>
-                  <div className="product-details-sizes">
-                    <button className="sizes" value="XS">
-                      XS
-                    </button>
-                    <button className="sizes" value="S">
-                      S
-                    </button>
-                    <button className="sizes" value="M">
-                      M
-                    </button>
-                    <button className="sizes" value="L">
-                      L
-                    </button>
-                    <button className="sizes" value="XL">
-                      XL
-                    </button>
-                    <button className="sizes" value="2XL">
-                      2XL
-                    </button>
-                    <button className="sizes" value="3XL">
-                      3XL
-                    </button>
-                  </div>
-                </div>
-                <div className="product-details-count-and-cart">
-                  <div className="product-details-count">
-                    <p>Количество: </p>
-                    <input type="number" />
-                  </div>
-                  <div
-                    className="product-details-cart"
-                    onClick={() => handleAddToCart(productsDetail)}
-                  >
-                    Добавить в корзину
-                  </div>
-                </div>
-              </div>
+              </Grid>
             </Grid>
+            <Grid item xs={1} />
           </Grid>
           <div className="product-details-recommendations">
             <div className="product-details-recommendations-title">

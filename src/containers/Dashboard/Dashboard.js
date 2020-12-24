@@ -16,10 +16,10 @@ const Dashboard = () => {
   return (
     <Wrapper>
       <Grid container id="product-container">
-        <Grid item xs={2} classes={{ item: classes.sidebar }}>
+        <Grid item xs={false} sm={2} classes={{ item: classes.sidebar }}>
           <Sidebar />
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={12} sm={10}>
           <Contents />
         </Grid>
       </Grid>

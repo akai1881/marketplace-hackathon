@@ -9,7 +9,6 @@ const Category = () => {
       <Grid container>
         <Grid item md={1} />
         <Grid container item md={10} justify="center">
-          <h2 style={{ textAlign: 'center' }}>footbalka</h2>
           <ProductList />
         </Grid>
         <Grid item md={1} />
