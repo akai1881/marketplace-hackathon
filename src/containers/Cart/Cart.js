@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaChevronLeft, FaTimes } from 'react-icons/fa';
 import { TiMinus, TiPlus } from 'react-icons/ti';
 import { productsContext } from '../../contexts/ProductContextProvider';
@@ -6,12 +6,18 @@ import './Cart.css';
 import CartData from './CartData';
 import { calcSubPrice } from '../../helpers/calcPrice';
 import { calcTotalPrice } from '../../helpers/calcPrice';
+import { useHistory } from 'react-router-dom';
+import { Alert, AlertTitle } from '@material-ui/lab';
 
 const Cart = () => {
   const { sidebar, showSidebar } = useContext(productsContext);
   const { changeCountInCart, addProductToCart, chooseSize } = useContext(
     productsContext
   );
+
+  const [alert, setAlert] = useState(false);
+
+  const history = useHistory();
 
   const cart = JSON.parse(localStorage.getItem('cart'));
 
@@ -22,6 +28,11 @@ const Cart = () => {
   const handleClick = (id, e) => {
     const size = e.currentTarget.dataset.size;
     chooseSize(id, size);
+  };
+
+  const handleOrder = () => {
+    history.push('/payment');
+    showSidebar();
   };
 
   return (
@@ -125,7 +136,7 @@ const Cart = () => {
             </div>
           </div>
           <div className="cart-btn-wrapper">
-            <button className="cart-btn-order">
+            <button className="cart-btn-order" onClick={handleOrder}>
               <span>оформить заказ</span>
             </button>
           </div>
