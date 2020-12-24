@@ -15,7 +15,8 @@ const AddProduct = () => {
     let [description, setDescription] = useState('');
     let [size, setSize] = useState('');
     let [category, setCategory] = useState('');
-    let [images, setImages] = useState([]);
+    let [images1, setImages1] = useState('');
+    let [images2, setImages2] = useState('');
 
 
 
@@ -27,17 +28,10 @@ const AddProduct = () => {
             description: description,
             size: size,
             category: category,
-            images: ['', ''],
+            images: [images1, images2],
             id: Date.now()
         }
         addProduct(newObj);
-        setTitle('');
-        setPrice('');
-        setStructure('');
-        setDescription('');
-        setSize('');
-        setCategory('');
-        setImages([]);
     }
 
 
@@ -89,8 +83,20 @@ const AddProduct = () => {
                                     <input
                                         className="addProduct-input"
                                         value={category}
+                                        list="categories"
                                         onChange={(e) => setCategory(e.target.value)}
                                     />
+                                    <datalist id="categories">
+                                        <option value="hoodie" />
+                                        <option value="t-shirts" />
+                                        <option value="sweatshirts" />
+                                        <option value="shirts" />
+                                        <option value="caps" />
+                                        <option value="hats" />
+                                        <option value="polo" />
+                                        <option value="bags" />
+                                        <option value="souvenirs" />
+                                    </datalist>
                                 </div>
                             </form>
                             <form className="addProduct-form">
@@ -119,8 +125,8 @@ const AddProduct = () => {
                                     <p>First Image</p>
                                     <input
                                         className="addProduct-input"
-                                        value={images[0]}
-                                        onChange={(e) => setImages(e.target.value)}
+                                        value={images1}
+                                        onChange={(e) => setImages1(e.target.value)}
                                     />
                                 </div>
                             </form>
@@ -129,8 +135,8 @@ const AddProduct = () => {
                                     <p>Second Image</p>
                                     <input
                                         className="addProduct-input"
-                                        value={images[1]}
-                                        onChange={(e) => setImages(e.target.value)}
+                                        value={images2}
+                                        onChange={(e) => setImages2(e.target.value)}
                                     />
                                 </div>
                             </form>
@@ -165,42 +171,42 @@ const AddProduct = () => {
                                         style={{ color: "black", margin: "0" }}
                                         onChange={(e) => setTitle(e.target.value)}
                                     >
-                                        <span style={{ color: "#818d92", fontSize: "15px" }}>Название: </span>{title}
+                                        <span style={{ color: "#818d92", fontSize: "15px" }}>Название: {title}</span>
                                     </h4>
                                     <h4
                                         style={{ color: "black", margin: "0", paddingTop: "10px" }}
                                         onChange={(e) => setPrice(e.target.value)}
                                     >
-                                        <span style={{ color: "#818d92", fontSize: "15px" }}>Цена: </span>{price}
+                                        <span style={{ color: "#818d92", fontSize: "15px" }}>Цена: {price}</span>
                                     </h4>
                                     <h4
                                         style={{ color: "black", margin: "0", paddingTop: "10px" }}
                                         onChange={(e) => setSize(e.target.value)}
                                     >
-                                        <span style={{ color: "#818d92", fontSize: "15px" }}>Размер: </span>{size}
+                                        <span style={{ color: "#818d92", fontSize: "15px" }}>Размер: {size}</span>
                                     </h4>
                                     <h4
                                         style={{ color: "black", margin: "0", paddingTop: "10px" }}
                                         onChange={(e) => setCategory(e.target.value)}
                                     >
-                                        <span style={{ color: "#818d92", fontSize: "15px" }}>Категория: </span>{category}
+                                        <span style={{ color: "#818d92", fontSize: "15px" }}>Категория: {category}</span>
                                     </h4>
                                     <h4
                                         style={{ color: "black", margin: "0", paddingTop: "10px" }}
                                         onChange={(e) => setStructure(e.target.value)}
                                     >
-                                        <span style={{ color: "#818d92", fontSize: "15px" }}>Состав: </span>{structure}
+                                        <span style={{ color: "#818d92", fontSize: "15px" }}>Состав: {structure}</span>
                                     </h4>
                                     <h4
                                         style={{ color: "black", margin: "0", paddingTop: "10px" }}
                                         onChange={(e) => setDescription(e.target.value)}
                                     >
-                                        <span style={{ color: "#818d92", fontSize: "15px" }}>Описание: </span>{description}
+                                        <span style={{ color: "#818d92", fontSize: "15px" }}>Описание: {description}</span>
                                     </h4>
                                 </div>
                                 <div className="addProduct-card-line" ></div>
-                                <div>
-                                    <img style={{ width: "100px" }} src='' alt="" />
+                                <div style={{ width: '250px', paddingLeft: "15px" }}>
+                                    <img style={{ maxWidth: "100%" }} src='' alt="" />
                                 </div>
                             </div>
                         </Grid>

@@ -12,7 +12,9 @@ const ProductCard = ({ item }) => {
             <div className="product-card-price">
               <h4 style={{ color: "white", margin: "10px 0 10px 0", textAlign: "center" }}> {item.price} </h4>
             </div>
-            <img style={{ width: "300px", padding: "5px 20px 0px 20px" }} src={item.images[0]} alt="" />
+            <div style={{ width: "300px", maxHeight: "340px", padding: "5px 20px 0px 20px", display: "flex", alignItems: "center" }}>
+              <img style={{ width: "100%", maxHeight: "340px" }} src={item.images[0]} alt="" />
+            </div>
           </div>
         </Link>
         <Link to={`/details/${item.id}`} key={item.id} style={{ textDecoration: "none" }}>

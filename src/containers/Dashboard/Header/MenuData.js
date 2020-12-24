@@ -53,12 +53,6 @@ const MenuData = [
     className: 'header-menu-item',
     id: 9,
   },
-  {
-    title: 'сувениры',
-    category: 'souvenirs',
-    className: 'header-menu-item',
-    id: 10,
-  },
 ];
 
 export default MenuData;

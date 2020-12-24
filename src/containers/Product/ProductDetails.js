@@ -4,32 +4,44 @@ import { Grid, Paper, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+import useAuth from '../../contexts/AuthContextProvider';
+import Spinner from '../../components/Spinner';
+import { Zoom } from 'react-slideshow-image';
+
+
 const ProductDetails = (props) => {
-  const {
-    getProductDetails,
-    productsDetail,
-    deleteProduct,
-    editProduct,
-    showSidebar,
-    addProductToCart,
-    countProductsInCart,
-  } = useContext(productsContext);
+    const {
+        getProductDetails,
+        productsDetail,
+        deleteProduct,
+        editProduct,
+        showSidebar,
+        addProductToCart,
+        countProductsInCart,
+    } = useContext(productsContext);
 
-  const { currentUser } = useAuth();
+    const { currentUser } = useAuth();
 
-  useEffect(() => {
-    getProductDetails(props.match.params.id);
-  }, [props.match.params.id]);
+    useEffect(() => {
+        getProductDetails(props.match.params.id);
+    }, [props.match.params.id]);
 
-  useEffect(() => {
-    getProductDetails(props.match.params.id);
-  }, [props.match.params.id]);
+    useEffect(() => {
+        getProductDetails(props.match.params.id);
+    }, [props.match.params.id]);
 
-  const handleAddToCart = (item) => {
-    addProductToCart(item);
-    countProductsInCart();
-    showSidebar();
-  };
+    const handleAddToCart = (item) => {
+        addProductToCart(item);
+        countProductsInCart();
+        showSidebar();
+    };
+    // console.log(productsDetail.images[1])
+
+    const images = [
+        productsDetail ? productsDetail.images[0] : "hello",
+        productsDetail ? productsDetail.images[1] : "hello"
+    ];
+
 
     return (
         <>
@@ -39,7 +51,12 @@ const ProductDetails = (props) => {
                     <Grid container className="product-details-content">
                         <Grid item md={7}>
                             <div className="product-details-slider">
-                                <img style={{ width: "450px", marginTop: "-45px" }} src={productsDetail.images[0]} alt="" />
+                                < Zoom scale={0.4}>
+                                    {
+                                        images.map((each, index) => <img key={index} style={{ width: "100%" }} src={each} />)
+                                    }
+                                </ Zoom >
+                                {/* <img style={{ width: "450px", marginTop: "-45px" }} src={productsDetail.images[0]} alt="" /> */}
                             </div>
                         </Grid>
                         <Grid item md={5}>
@@ -112,7 +129,7 @@ const ProductDetails = (props) => {
                         </div>
                     </div>
                 </div>
-                : <h1>Loading</h1>
+                : <Spinner />
             }
         </>
     );

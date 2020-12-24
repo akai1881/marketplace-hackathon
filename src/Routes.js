@@ -10,8 +10,7 @@ import Dashboard from './containers/Dashboard/Dashboard';
 import ProductsContextProvider from './contexts/ProductContextProvider';
 import Category from './containers/Category/Category';
 import Cart from './containers/Cart/Cart';
-import Wrapper from './containers/Dashboard/Wrapper';
-import OrderForm from './containers/OrderForm/OrderForm';
+import PaymentForm from './containers/OrderForm/OrderForm';
 
 const Routes = () => {
   return (
@@ -28,7 +27,7 @@ const Routes = () => {
             <Route exact path="/addProduct" component={AddProduct} />
           </Switch>
           <Switch>
-            <Route exact path="/payment" component={OrderForm} />
+            <Route exact path="/payment" component={PaymentForm} />
           </Switch>
           <Footer />
         </AuthContextProvider>
