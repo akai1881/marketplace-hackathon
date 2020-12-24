@@ -103,6 +103,11 @@ const ProductsContextProvider = ({ children }) => {
     getProductList();
   }
 
+  // async function addReviews(newObj) {
+  //   await axios.patch(`http://localhost:8000/products${newObj.id}`, newObj)
+  //   getProductList()
+  // }
+
   function addProductToCart(item) {
     let cart = getAllCart();
     if (!cart) {
