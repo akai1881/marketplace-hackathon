@@ -116,3 +116,59 @@
 .order-product-price-wrapper {
   padding: 25px 40px 25px 25px;
 }
+.order-form-container {
+  width: 100%;
+  min-height: 600px;
+  padding: 30px 0 30px 0;
+}
+
+.order-form-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.order-form-right-title,
+.order-form-left-title {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.order-form-left-content {
+  width: 100%;
+}
+
+.order-form-left-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.order-form-inp {
+  min-width: 220px;
+  margin-right: 10px;
+  height: 36px;
+  padding: 0 10px 0 10px;
+  background-color: #f4f6f8;
+  border-radius: 1000px;
+  outline: none;
+  border: none;
+}
+
+.order-form-button-container {
+  margin: 50px auto 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.order-form-button {
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 25px;
+}

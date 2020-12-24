@@ -152,7 +152,6 @@ const ProductsContextProvider = ({ children }) => {
 
   function getCart() {
     let cart = getAllCart();
-    console.log(cart);
     countProductsInCart();
     dispatch({
       type: 'GET_CART',

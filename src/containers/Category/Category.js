@@ -7,11 +7,11 @@ const Category = () => {
   return (
     <Wrapper>
       <Grid container>
-        <Grid item md={2} />
-        <Grid container item md={8}>
+        <Grid item md={1} />
+        <Grid container item md={10}>
           <ProductList />
         </Grid>
-        <Grid item md={2} />
+        <Grid item md={1} />
       </Grid>
     </Wrapper>
   );

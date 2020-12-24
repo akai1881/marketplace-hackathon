@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import useAuth from '../../contexts/AuthContextProvider';
+import Spinner from '../../components/Spinner';
+import { Zoom } from 'react-slideshow-image';
+
 const ProductDetails = (props) => {
   const {
     getProductDetails,
@@ -32,6 +35,11 @@ const ProductDetails = (props) => {
     showSidebar();
   };
 
+  const images = [
+    productsDetail ? productsDetail.images[0] : 'hello',
+    productsDetail ? productsDetail.images[1] : 'hello',
+  ];
+
   return (
     <>
       {productsDetail ? (
@@ -40,11 +48,12 @@ const ProductDetails = (props) => {
           <Grid container className="product-details-content">
             <Grid item md={7}>
               <div className="product-details-slider">
-                <img
-                  style={{ width: '450px', marginTop: '-45px' }}
-                  src={productsDetail.images[0]}
-                  alt=""
-                />
+                <Zoom scale={0.4}>
+                  {images.map((each, index) => (
+                    <img key={index} style={{ width: '100%' }} src={each} />
+                  ))}
+                </Zoom>
+                {/* <img style={{ width: "450px", marginTop: "-45px" }} src={productsDetail.images[0]} alt="" /> */}
               </div>
             </Grid>
             <Grid item md={5}>
@@ -85,6 +94,9 @@ const ProductDetails = (props) => {
                 <div className="product-details-size-content">
                   <p>Выберите размер:</p>
                   <div className="product-details-sizes">
+                    <button className="sizes" value="XS">
+                      XS
+                    </button>
                     <button className="sizes" value="S">
                       S
                     </button>
@@ -110,12 +122,12 @@ const ProductDetails = (props) => {
                     <p>Количество: </p>
                     <input type="number" />
                   </div>
-                  <button
+                  <div
                     className="product-details-cart"
                     onClick={() => handleAddToCart(productsDetail)}
                   >
                     Добавить в корзину
-                  </button>
+                  </div>
                 </div>
               </div>
             </Grid>
@@ -139,7 +151,7 @@ const ProductDetails = (props) => {
           </div>
         </div>
       ) : (
-        <h1>Loading</h1>
+        <Spinner />
       )}
     </>
   );

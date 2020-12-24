@@ -52,7 +52,10 @@ const Cart = () => {
                     <div className="cart-content-image">
                       <picture>
                         <source
-                          srcSet="https://jolybell.com/storage/Zpg2MZzSFU81.webp?preview=&width=192&height=232&quality=100"
+                          srcSet={item.product.images[0].replace(
+                            /preview.*/,
+                            'preview=&width=192&height=232&quality=100'
+                          )}
                           type="image/webp"
                         />
                         <img src="https://jolybell.com/storage/Zpg2MZzSFU81.png?preview=&width=192&height=232" />

@@ -10,7 +10,7 @@ import Dashboard from './containers/Dashboard/Dashboard';
 import ProductsContextProvider from './contexts/ProductContextProvider';
 import Category from './containers/Category/Category';
 import Cart from './containers/Cart/Cart';
-import OrderForm from './containers/OrderForm/OrderForm';
+import PaymentForm from './containers/OrderForm/OrderForm';
 import ToastProvider from 'react-toast-notifications';
 
 const Routes = () => {
@@ -26,7 +26,7 @@ const Routes = () => {
             <Route exact path="/details/:id" component={ProductDetails} />
             <Route exact path="/editProduct" component={EditProduct} />
             <Route exact path="/addProduct" component={AddProduct} />
-            <Route exact path="/payment" component={OrderForm} />
+            <Route exact path="/payment" component={PaymentForm} />
           </Switch>
           <Footer />
         </AuthContextProvider>
