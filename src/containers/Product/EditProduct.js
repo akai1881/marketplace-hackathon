@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { productsContext } from '../../contexts/ProductContextProvider';
-import Button from '@material-ui/core/Button';
-import SaveIcon from '@material-ui/icons/Save';
-import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
+import Spinner from '../../components/Spinner';
+import Wrapper from '../Dashboard/Wrapper';
 
 const EditProduct = () => {
   const { editToProduct, saveProduct } = useContext(productsContext);
@@ -37,105 +36,172 @@ const EditProduct = () => {
   const classes = useStyles();
 
   return (
-    <div>
-      {newEditItem ? (
-        <Grid
-          container
-          justify="center"
-          alignItems="center"
-          style={{ flexDirection: 'column' }}
-        >
-          <form className={classes.root} noValidate autoComplete="off">
-            <TextField
-              id="standard-basic"
-              label="Title"
-              name="title"
-              value={newEditItem.title}
-              onChange={handleValue}
-            />
-          </form>
-
-          <form className={classes.root} noValidate autoComplete="off">
-            <TextField
-              id="standard-basic"
-              label="Price"
-              name="price"
-              value={newEditItem.price}
-              onChange={handleValue}
-            />
-          </form>
-
-          <form className={classes.root} noValidate autoComplete="off">
-            <TextField
-              id="standard-basic"
-              label="Structure"
-              name="structure"
-              value={newEditItem.structure}
-              onChange={handleValue}
-            />
-          </form>
-
-          <form className={classes.root} noValidate autoComplete="off">
-            <TextField
-              id="standard-basic"
-              label="Description"
-              name="description"
-              value={newEditItem.description}
-              onChange={handleValue}
-            />
-          </form>
-
-          <form className={classes.root} noValidate autoComplete="off">
-            <TextField
-              id="standard-basic"
-              label="Size"
-              name="size"
-              value={newEditItem.size}
-              onChange={handleValue}
-            />
-          </form>
-
-          <form className={classes.root} noValidate autoComplete="off">
-            <TextField
-              id="standard-basic"
-              label="Image 1"
-              name="images"
-              value={newEditItem.images[0]}
-              onChange={handleValue}
-            />
-          </form>
-          <form className={classes.root} noValidate autoComplete="off">
-            <TextField
-              id="standard-basic"
-              label="Image 2"
-              name="images"
-              value={newEditItem.images[1]}
-              onChange={handleValue}
-            />
-          </form>
-
-          <div style={{ marginTop: '30px' }}>
-            <Button size="small" variant="outlined" color="primary">
-              Cancel
-            </Button>
-            <Link to="/">
-              <Button
-                style={{ left: '30px' }}
-                variant="contained"
-                color="primary"
-                size="small"
-                startIcon={<SaveIcon />}
-                onClick={() => saveProduct(newEditItem)}
-              >
-                Save
-              </Button>
-            </Link>
+    <Wrapper>
+      {newEditItem ?
+        <div className="addProduct-container">
+          <div className="addProduct-content">
+            <div className="addProduct-title">
+              <h1>Изменение товара</h1>
+            </div>
+            <Grid container>
+              <Grid item md={6} style={{ paddingRight: "100px" }}>
+                <h2>Введите данные для изменение товара</h2>
+                <form className="addProduct-form">
+                  <div className="addProduct-input-content">
+                    <p>Title</p>
+                    <input
+                      className="addProduct-input"
+                      defaultValue={newEditItem.title}
+                      name="title"
+                      onChange={handleValue}
+                    />
+                  </div>
+                </form>
+                <form className="addProduct-form">
+                  <div className="addProduct-input-content">
+                    <p>Price</p>
+                    <input
+                      className="addProduct-input"
+                      defaultValue={newEditItem.price}
+                      name="price"
+                      onChange={handleValue}
+                    />
+                  </div>
+                </form>
+                <form className="addProduct-form">
+                  <div className="addProduct-input-content">
+                    <p>Size</p>
+                    <input
+                      className="addProduct-input"
+                      name="size"
+                      defaultValue={newEditItem.size}
+                      onChange={handleValue}
+                    />
+                  </div>
+                </form>
+                <form className="addProduct-form">
+                  <div className="addProduct-input-content">
+                    <p>Category</p>
+                    <input
+                      className="addProduct-input"
+                      name="category"
+                      defaultValue={newEditItem.category}
+                      onChange={handleValue}
+                    />
+                  </div>
+                </form>
+                <form className="addProduct-form">
+                  <div className="addProduct-input-content">
+                    <p>Structure</p>
+                    <input
+                      className="addProduct-input"
+                      name="structure"
+                      defaultValue={newEditItem.structure}
+                      onChange={handleValue}
+                    />
+                  </div>
+                </form>
+                <form className="addProduct-form">
+                  <div className="addProduct-input-content">
+                    <p>Description</p>
+                    <input
+                      className="addProduct-input"
+                      name="description"
+                      defaultValue={newEditItem.description}
+                      onChange={handleValue}
+                    />
+                  </div>
+                </form>
+                <form className="addProduct-form">
+                  <div className="addProduct-input-content">
+                    <p>First Image</p>
+                    <input
+                      className="addProduct-input"
+                      defaultValue={newEditItem.images[0]}
+                      onChange={handleValue}
+                    />
+                  </div>
+                </form>
+                <form className="addProduct-form">
+                  <div className="addProduct-input-content">
+                    <p>Second Image</p>
+                    <input
+                      className="addProduct-input"
+                      defaultValue={newEditItem.images[0]}
+                      onChange={handleValue}
+                    />
+                  </div>
+                </form>
+                <div className="addProduct-buttons">
+                  <Link to="/">
+                    <button
+                      className="addProduct-button"
+                    >
+                      Cancel
+                    </button>
+                  </Link>
+                  <Link to='/'>
+                    <button
+                      className="addProduct-button"
+                      onClick={() => saveProduct(newEditItem)}
+                    >
+                      Save
+                    </button>
+                  </Link>
+                </div>
+              </Grid>
+              <Grid item md={6} >
+                <div className="addProduct-card">
+                  <div className="addProduct-card-title">
+                    <h1>Ваш товар</h1>
+                  </div>
+                </div>
+                <div className="addProduct-card-content">
+                  <div className="addProduct-card-content-left">
+                    <h4
+                      style={{ color: "black", margin: "0" }}
+                    >
+                      <span style={{ color: "#818d92", fontSize: "15px" }}>Название: {newEditItem.title}</span>
+                    </h4>
+                    <h4
+                      style={{ color: "black", margin: "0", paddingTop: "10px" }}
+                    >
+                      <span style={{ color: "#818d92", fontSize: "15px" }}>Цена: {newEditItem.price}</span>
+                    </h4>
+                    <h4
+                      style={{ color: "black", margin: "0", paddingTop: "10px" }}
+                    >
+                      <span style={{ color: "#818d92", fontSize: "15px" }}>Размер: {newEditItem.size}</span>
+                    </h4>
+                    <h4
+                      style={{ color: "black", margin: "0", paddingTop: "10px" }}
+                    >
+                      <span style={{ color: "#818d92", fontSize: "15px" }}>Категория: {newEditItem.category}</span>
+                    </h4>
+                    <h4
+                      style={{ color: "black", margin: "0", paddingTop: "10px" }}
+                    >
+                      <span style={{ color: "#818d92", fontSize: "15px" }}>Состав: {newEditItem.structure}</span>
+                    </h4>
+                    <h4
+                      style={{ color: "black", margin: "0", paddingTop: "10px" }}
+                    >
+                      <span style={{ color: "#818d92", fontSize: "15px" }}>Описание: {newEditItem.description}</span>
+                    </h4>
+                  </div>
+                  <div className="addProduct-card-line" ></div>
+                  <div style={{ width: '250px', height: "100px", paddingLeft: "15px" }}>
+                    <img style={{ maxWidth: "100%" }} src={newEditItem.images[0]} alt="" />
+                  </div>
+                </div>
+              </Grid>
+            </Grid>
           </div>
-        </Grid>
-      ) : (
-        <h1 style={{ color: 'black' }}>Loading...</h1>
-      )}
-    </div>
+        </div>
+        :
+        <Spinner />
+      }
+    </Wrapper>
   );
 };
 
